@@ -63,24 +63,13 @@ class HomeScreen extends StatelessWidget {
     
     <body>
       <div class="embed-iframe">
-        <iframe src="https://youtube.com/embed/9bZkp7q19f0"
+        <iframe src="https://player.scaleup.com.br/embed/510c42b9fde8af543194ea9fdc0296149cc5a1a5"
           title=""
           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; autoplay; muted;fullscreen;"
           allowfullscreen webkitallowfullscreen style="width: 100%; aspect-ratio: 16 / 9; border: 0px; margin: 0px auto; padding: 0px;"></iframe>
       </div>
       <script>
-     window.addEventListener("onConsoleMessage", function(event) {
-        console.log(event.data);
-        FlutterOnMessage.postMessage(JSON.stringify(event.data));
-      });
-      window.addEventListener("message", function(event) {
-        FlutterEvents.postMessage(JSON.stringify(event.data));
-       
-      });
-      
-       
-      
-      
+    
       </script>
     </body>
     
@@ -91,6 +80,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: InAppWebView(
+        key: ValueKey("Teste"),
         initialSettings: InAppWebViewSettings(
           hardwareAcceleration: true,
           forceDark: ForceDark.OFF,
@@ -99,6 +89,7 @@ class HomeScreen extends StatelessWidget {
           allowsPictureInPictureMediaPlayback: true,
           allowsInlineMediaPlayback: true,
           iframeAllowFullscreen: true,
+          isElementFullscreenEnabled: true,
         ),
         initialData: InAppWebViewInitialData(
           data: html,
