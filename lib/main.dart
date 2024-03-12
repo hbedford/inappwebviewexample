@@ -79,20 +79,33 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: InAppWebView(
-        key: ValueKey("Teste"),
-        initialSettings: InAppWebViewSettings(
-          hardwareAcceleration: true,
-          forceDark: ForceDark.OFF,
-          geolocationEnabled: false,
-          javaScriptEnabled: true,
-          allowsPictureInPictureMediaPlayback: true,
-          allowsInlineMediaPlayback: true,
-          iframeAllowFullscreen: true,
-          isElementFullscreenEnabled: true,
-        ),
-        initialData: InAppWebViewInitialData(
-          data: html,
+      body: SafeArea(
+        child: Column(
+          children: [
+            const Text(
+              "InAppWebView",
+              style: TextStyle(color: Colors.black),
+            ),
+            const SizedBox(height: 24),
+            Expanded(
+              child: InAppWebView(
+                key: const ValueKey("Teste"),
+                initialSettings: InAppWebViewSettings(
+                  hardwareAcceleration: true,
+                  forceDark: ForceDark.OFF,
+                  geolocationEnabled: false,
+                  javaScriptEnabled: true,
+                  allowsPictureInPictureMediaPlayback: true,
+                  allowsInlineMediaPlayback: true,
+                  iframeAllowFullscreen: true,
+                  isElementFullscreenEnabled: true,
+                ),
+                initialData: InAppWebViewInitialData(
+                  data: html,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
